@@ -1,3 +1,4 @@
+@compra_passagem
 Feature: Compra de Passagem Aérea
   # Descreve a compra pelo site Blazedemo.com
   # E2E = End to End = Início a Fim, etc
