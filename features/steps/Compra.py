@@ -15,7 +15,6 @@ def before_feature(context, feature):
             # pode ser incluidas outras ações
         )
 
-
 @given(u'que acesso o site Blazedemo')
 def step_impl(context):
     context.driver.get('https://www.blazedemo.com')
