@@ -6,8 +6,7 @@ def before_all(context):  # Antes de Tudo
 
     # Declarar o Selenium, instanciar como o navegador e apontar o driver
     # context.driver = webdriver.Chrome('C:/Users/Claudio/PycharmProjects/FTS132_Blazedemo/drivers/chromedriver109/chromedriver.exe')
-    service = Service(
-        executable_path='C:/Users/Claudio/PycharmProjects/FTS132_Blazedemo/drivers/chromedriver109/chromedriver.exe')
+    service = Service(executable_path='drivers/chromedriver109/chromedriver.exe')
     context.driver = webdriver.Chrome(service=service)
     # Maximizar a janela do navegador
     context.driver.maximize_window()
