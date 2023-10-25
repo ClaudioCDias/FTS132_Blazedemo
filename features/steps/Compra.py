@@ -56,21 +56,23 @@ def step_impl(context):
     context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-primary').click()
     print('Passo 4 - Clicou no botão Find Flights')
 
-@then(u'sou direcionado para a página de seleção de vôos')
-def step_impl(context):
+@then(u'sou direcionado para a página de seleção de vôos de "{origem}" para "{destino}"')
+def step_impl(context, origem, destino):
     print()
-
     # 3 Principais motivos para o teste de automação não funcionar
     # - Seletores ou Indentificadores
     # - Sincronismo
     # - "Programação Exótica"
 
     # assert context.driver.find_element(By.TAG_NAME, 'h3').text() == 'Flights from São Paolo to Rome: '
-    '''
+
     time.sleep(5)
-    assert context.driver.find_element(By.XPATH, '/html[1]/body[1]/div[2]/h2[1]').text() == 'Flights from São Paolo to Rome: '
+    re = f'Flights from {origem} to {destino}:'
+    print('texto é ' + context.driver.find_element(By.XPATH, '/html[1]/body[1]/div[2]/h2[1]').text)
+    assert context.driver.find_element(By.XPATH, '/html[1]/body[1]/div[2]/h2[1]').text == re
+
     print('Passo 5 - Direcionou para a pagina de seleção de vôos')
-    '''
+
 
 @when(u'seleciono o primeiro vôo')
 def step_impl(context):
@@ -79,7 +81,9 @@ def step_impl(context):
 
 @then(u'sou direcionado para a página de pagamento')
 def step_impl(context):
-    assert context.driver.find_element(By.XPATH, "//p[contais(text(), 'Please submit the form below to purchase the flight.')]").text == 'Please submit the form below to purchase the flight.'
+    re = 'Please submit the form below to purchase the flight.'
+    assert context.driver.find_element(By.XPATH,
+      "//p[contais(text(), 'Please submit the form below to purchase the flight.')]").text == re
     print('Passo 7 - Direcionou para a página de pagamento')
 
 @when(u'preencho os dados para o pagamento')
@@ -95,10 +99,10 @@ def step_impl(context):
 @then(u'sou direcionado para a página de confirmação')
 def step_impl(context):
     print()
-    '''
-    assert context.driver.find_element(By.TAG_NAME, 'h1').text() == 'Thank you for your purchase today!'
+
+    assert context.driver.find_element(By.TAG_NAME, 'h1').text == 'Thank you for your purchase today!'
     print('Passo 10 - Direcionou para a página de confirmação ')
-    '''
+
 @when(u'seleciono de "{origem}" para "{destino}"')
 def step_impl(context, origem, destino):
     # Mapeia o combo com as cidades de origem

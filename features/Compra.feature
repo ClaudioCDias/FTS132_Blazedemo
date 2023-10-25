@@ -7,7 +7,7 @@ Feature: Compra de Passagem Aérea
     When seleciono a origem como "São Paolo"
     And seleciono a cidade de destino "Rome"
     And clico no botão Find Flights
-    Then sou direcionado para a página de seleção de vôos
+    Then sou direcionado para a página de seleção de vôos de "São Paolo" para "Rome"
     When seleciono o primeiro vôo
     Then sou direcionado para a página de pagamento
     When preencho os dados para o pagamento
@@ -17,7 +17,7 @@ Feature: Compra de Passagem Aérea
   Scenario: De Boston a Berlin Compacto
     Given que acesso o site Blazedemo
     When seleciono de "Boston" para "Berlin"
-    Then sou direcionado para a página de seleção de vôos
+    Then sou direcionado para a página de seleção de vôos de "Boston" para "Berlin"
     When seleciono o primeiro vôo
     Then sou direcionado para a página de pagamento
     When preencho os dados para o pagamento
@@ -27,7 +27,7 @@ Feature: Compra de Passagem Aérea
   Scenario Outline: De origem a destino
     Given que acesso portal Blazedemo
     When seleciono de "<origem>" para "<destino>"
-    Then sou direcionado para a página de seleção de vôos
+    Then sou direcionado para a página de seleção de vôos de "<origem>" para "<destino>"
     When seleciono o primeiro vôo
     Then sou direcionado para a página de pagamento
     When preencho os dados para o pagamento
