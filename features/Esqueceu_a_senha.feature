@@ -1,6 +1,7 @@
 @esqueceu_a_senha
 Feature: Esqueceu a senha
-  Scenario Outline: Usuario com Cadastro
+
+  Scenario Outline: Usuarios com Cadastro
     Given que acesso o site Blazedemo
     When clico em home
     And clico no link Forgot Your Password?
